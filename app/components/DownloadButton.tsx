@@ -1,10 +1,10 @@
 'use client';
 
+import { RefObject } from 'react';
 import { toPng } from 'html-to-image';
-import React from 'react';
 
 interface DownloadButtonProps {
-  elementRef: React.RefObject<HTMLDivElement>;
+  elementRef: RefObject<HTMLDivElement | null>;
 }
 
 const DownloadButton: React.FC<DownloadButtonProps> = ({ elementRef }) => {
@@ -16,11 +16,16 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ elementRef }) => {
         link.href = dataUrl;
         link.click();
       });
+    } else {
+      console.error('Element tidak ditemukan untuk diunduh.');
     }
   };
 
   return (
-    <button onClick={downloadImage} className="px-4 py-2 bg-green-500 text-white rounded">
+    <button
+      onClick={downloadImage}
+      className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
+    >
       Download
     </button>
   );

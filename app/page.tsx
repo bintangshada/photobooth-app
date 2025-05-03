@@ -5,6 +5,7 @@ import Camera from './components/Camera';
 import Gallery from './components/Gallery';
 import Templates from './components/Templates';
 import DownloadButton from './components/DownloadButton';
+import Image from 'next/image';
 
 export default function PhotoboothPage() {
   const [images, setImages] = useState<string[]>([]);
@@ -34,7 +35,7 @@ export default function PhotoboothPage() {
             .map((_, rowIndex) =>
               images.map((image, colIndex) => (
                 <div key={`${rowIndex}-${colIndex}`} className="border p-2">
-                  <img src={image} alt={`Captured ${colIndex}`} className="max-w-full" />
+                  <Image src={image} alt={`Captured ${colIndex}`} className="max-w-full" />
                 </div>
               ))
             )}

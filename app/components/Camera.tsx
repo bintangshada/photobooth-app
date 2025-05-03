@@ -57,7 +57,7 @@ const Camera: React.FC<CameraProps> = ({ onCapture }) => {
             className="w-full h-auto"
             onUserMediaError={(err) => {
               console.error('Error saat mencoba mengakses kamera:', err);
-              setError(`error: ${err.message}`);
+              setError(`error: ${err}`);
             }}
             onUserMedia={() => {
               console.log('Kamera berhasil diakses.');
